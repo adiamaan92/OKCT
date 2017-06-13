@@ -9,3 +9,5 @@ Feature Engineering and Preprocessing - https://github.com/adiamaan92/OKCT/blob/
 Exploratory Data analysis - https://github.com/adiamaan92/OKCT/blob/master/okct_part2.ipynb
 
 Modeling and hyper parameter tuning - https://github.com/adiamaan92/OKCT/blob/master/okct_part3.ipynb
+
+Project deliverable - predict function - https://github.com/adiamaan92/OKCT/blob/master/okct_question3.ipynb
