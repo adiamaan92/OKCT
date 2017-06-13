@@ -1,0 +1,57 @@
+Feature Dictionary:
+The features are seperated into four families,
+1) In game features
+2) In season features 
+3) Pre Season features (External Data) - hollinger team stats
+4) Player features (External Data) - hollinger player stats
+
+In game features: Features that are extracted from the current data records and the records that occured before it
+in the particular game.
+1) remaining_time 'int32': The time in minutes is converted into seconds
+2) score_difference 'int32': The difference in score away_score  - home_score
+3) score_diff_percentile 'float32': To account for low and high scoring games. ((away_score - home_score)/(away_score + home_score)) 
+4) home 'str': The home team name
+5) away 'str': The away team name
+6) home_result 'bool': 0 if home team won else 1
+7) in_violations 'float32': Total home team violations so far - away team violations
+8) in_rebound 'float32: Total home team rebounds so far - away team rebounds
+9) in_hfouls 'float32' : Total non shooting fouls of home team
+10) in_afouls 'float32' : Total non shooting fouls of away team
+11) in_hshoot_fouls 'float32' : Total shooting fouls of home team
+12) in_ashoot_fouls 'float32' : Total shooting fouls of away team
+13) in_shot_accuracy 'float32' : home team shot accuracy  - away team shot accuracy
+		shot_accuracy = Made shot/(Made shot + Missed Shot)
+14) in_ft_accuracy 'float32' : home team free throw accuracy  - away team free throw accuracy
+15) in_momentum : Change in score difference from the last five records
+			ith in_momentum = score_difference[i] - score_difference[i-5]
+
+In season features: Features that are extracted from previous games of the same regualar season
+1) nth_game_season : Quantified version of a game in a series
+	nth game in season = n/Total games in season
+2) total_win_ratio : Total wins the team has had before this match
+	total_win_ratio = Wins so far/ Games played
+3) home_away_win_ratio : Total wins the team has had with the opponent team
+
+Pre Season features:
+For better explanation of these features see glossary
+1) pre_PACE : Home team PACE - away team PACE
+	PACE - number of possessions per game
+2) pre_AST : Home team assist ratio - away team assist ratio
+	AST - (Assists x 100) divided by [(FGA + (FTA x 0.44) + Assists + Turnovers]
+3) pre_TO : Home team Turnover ratio - away team turnover ratio
+	TO - (Turnover x 100) divided by [(FGA + (FTA x 0.44) + Assists + Turnovers]
+4) pre_ORR : Home team offensive rebound rate - away team offensive rebound rate
+5) pre_DRR : Home team defensive rebound rate - away team defensive redound rate
+6) pre_EFF_FG : Home team effective field goal rate - away team effective field goal rate
+7) pre_TS : Home team true shootng percentage - away team true shooting percentage
+	TS - (Total points x 50) divided by [(FGA + (FTA x 0.44)]
+8) pre_OFF_EFF : Home team offensive efficiecy - away team offensive efficiency
+	offensive efficiency - number of points a team scores per 100 possessions
+9) pre_DEF_EFF: Home team defensive efficiecy - away team defensive efficiecy
+	defensive_efficiency - number of points a team allows per 100 possessions
+
+Player features: Players are ranked based on Player Efficiency Rating which is the overall rating 
+of a player's per minute statistical production.
+1) home_ranking: Average rank of home team players currently playing
+2) away_ranking: Average rank of away team players currently playing
+	Rankings are obtained from previous season hollinger player stats
