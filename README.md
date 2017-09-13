@@ -1,6 +1,7 @@
 # OKCT
 
-In game win predictability for OKC Thunder
+In game win predictability for OKC Thunder. ESPN is used as the data source to get in game data set 
+and hollinger stats is used to get player and team statistics.
 
 Feature Explanations - https://github.com/adiamaan92/OKCT/blob/master/feature_dictionary.txt
 
